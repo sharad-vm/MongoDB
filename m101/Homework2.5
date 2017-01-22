@@ -1,0 +1,37 @@
+# Homework 2.5
+
+##Problem
+Using the video.movieDetails collection, how many movies list "Sweden" second in the the list of countries.
+
+NOTE: There is a dump of the video database included in the handouts for the "Creating Documents" lesson. Use that data set to answer this question.
+
+##Solution
+
+> db.movieDetails.find({'countries.1':'Sweden'},{'countries':1,'_id':0}).pretty().count()
+
+ 6
+
+The query below provides the list of documents that satisfy the solution.
+> db.movieDetails.find({'countries.1':'Sweden'},{'countries':1,'_id':0}).pretty()
+
+{ "countries" : [ "Romania", "Sweden", "Germany" ] }
+{
+        "countries" : [
+                "Denmark",
+                "Sweden",
+                "Norway",
+                "UK",
+                "USA",
+                "Germany",
+                "Netherlands",
+                "Israel",
+                "Spain",
+                "Belgium",
+                "Canada"
+        ]
+}
+{ "countries" : [ "Iceland", "Sweden" ] }
+{ "countries" : [ "USA", "Sweden", "Norway" ] }
+{ "countries" : [ "USA", "Sweden" ] }
+{ "countries" : [ "France", "Sweden" ] }
+>
