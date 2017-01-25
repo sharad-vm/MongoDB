@@ -1,0 +1,11 @@
+import pymongo
+import sys
+
+connection = pymongo.MongoClient("mongodb://localhost")
+db = connection.school
+students = db.students
+
+def find_lowest_homework_score( scores):
+    homework_scores = [score for score in scores if score[u"type"] == u"homework"]
+ 	  lowest = min( [score[u"score"] for score in homework_scores])
+ 	  return [score for score in scores
